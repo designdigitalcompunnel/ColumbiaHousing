@@ -178,7 +178,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.035em;li
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .hero-side{border:1px solid rgba(255,255,255,.16);border-radius:var(--r-md);background:var(--navy);overflow:hidden;color:#fff;box-shadow:0 30px 60px -24px rgba(0,0,0,.7)}
 .hero-side .ph{height:150px}
-.hero-side .ph img{object-position:center 35%}
+.hero-side .ph img{object-position:center 40%}
 .hero-side .in{padding:20px}
 .hero-side .n{color:var(--orange-lt)}
 .hero-side .k{font-family:var(--display);font-weight:700;font-size:clamp(28px,2.8vw,40px);line-height:1;letter-spacing:-.05em;margin-top:6px}
@@ -200,6 +200,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.035em;li
 .qcard::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,29,38,.08) 15%,rgba(18,29,38,.9) 100%)}
 .qcard:hover{transform:translateY(-6px);border-color:rgba(232,135,95,.9)}
 .qcard:hover img{transform:scale(1.07)}
+.qcard--maintenance img{object-position:center 38%}
 .qcard .num{position:absolute;top:14px;left:14px;font-size:11px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.92);color:var(--navy)}
 .qcard .arrow{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:var(--orange);display:grid;place-items:center;transition:transform .35s var(--ease)}
 .qcard:hover .arrow{transform:rotate(-45deg)}
@@ -296,6 +297,8 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.035em;li
 .init.wide .pic{height:clamp(190px,17vw,250px)}
 .init .pic img{transition:transform .7s var(--ease)}
 .init:hover .pic img{transform:scale(1.06)}
+.init--residents .pic img{object-position:center 40%}
+.init--residents:hover .pic img{transform-origin:center 34%}
 .init .pic .tag{position:absolute;z-index:2;left:14px;top:14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:99px;color:#fff;background:var(--navy)}
 .init .in{padding:22px;display:flex;flex-direction:column;flex:1}
 .init h3{font-size:clamp(20px,1.8vw,27px)}
@@ -335,10 +338,14 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.035em;li
 .stage p{font-size:13.5px;color:var(--slate-d);margin:6px 0 0;font-weight:400;line-height:1.45}
 .case{margin-top:clamp(26px,3vw,44px);border-radius:var(--r-lg);overflow:hidden;background:#fff;display:grid;grid-template-columns:.5fr 1.5fr}
 .case-tag{position:relative;isolation:isolate;padding:clamp(22px,2.6vw,34px);color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:280px}
-.case-tag .bg{position:absolute;inset:0;z-index:-2;background:var(--navy)}
+.case-tag .bg{position:absolute;inset:0;z-index:-2;background:var(--navy-dd)}
 .case-tag .bg img{width:100%;height:100%;object-fit:cover;transition:opacity .4s}
-.case-tag::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,24,70,.35),rgba(18,29,38,.94))}
-.case-tag .p{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--orange-lt)}
+.case-tag--application-help .bg img{position:absolute;inset:auto 0 0;height:80%;object-position:69% center;filter:brightness(1.12);mask-image:linear-gradient(to bottom,transparent,#000 18%)}
+.case-tag.case-tag--application-help::after{background:linear-gradient(180deg,rgba(6,24,61,.72) 0%,rgba(6,24,61,.68) 24%,rgba(6,24,61,.10) 45%,rgba(6,24,61,.05) 72%,rgba(6,24,61,.52) 100%)}
+.case-tag--application-help h3{text-shadow:0 1px 8px rgba(6,24,61,.65)}
+@media(max-width:860px){.case-tag--application-help .bg img{object-position:69% 37%}}
+.case-tag::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,24,61,.90) 0,rgba(6,24,61,.72) 132px,rgba(6,24,61,.15) 78%,rgba(6,24,61,.56) 100%)}
+.case-tag .p{display:inline-block;padding:5px 10px;border-radius:999px;background:#edf3fb;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--navy-dd)}
 .case-tag h3{font-size:clamp(23px,2.3vw,34px);margin-top:10px;color:#fff}
 .case-tag .prog{display:flex;gap:6px}
 .case-tag .prog i{height:4px;flex:1;border-radius:99px;background:rgba(255,255,255,.26)}
@@ -484,9 +491,9 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.035em;li
 .press{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--gap)}
 .press-card{border-radius:var(--r-lg);padding:clamp(26px,3.2vw,52px);display:flex;flex-direction:column;justify-content:space-between;min-height:380px;position:relative;overflow:hidden;isolation:isolate}
 .press-card.a{color:#fff}
-.press-card.a .bg{position:absolute;inset:0;z-index:-2;background:var(--brick)}
+.press-card.a .bg{position:absolute;inset:0;z-index:-2;background:var(--navy-dd)}
 .press-card.a .bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);opacity:.35}
-.press-card.a::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(125deg,rgba(198,83,47,.96) 15%,rgba(154,61,34,.94) 55%,rgba(0,24,70,.93) 100%)}
+.press-card.a::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(122deg,rgba(172,11,45,.96) 0%,rgba(143,11,40,.94) 31%,rgba(6,44,115,.92) 72%,rgba(6,24,61,.95) 100%)}
 .press-card.a h2{color:#fff;font-size:clamp(30px,3.6vw,54px);max-width:14ch}
 .press-card.a h2 .it{color:var(--ochre)}
 .press-card.a p{color:#F3E7E1}
@@ -555,11 +562,11 @@ footer{position:relative;isolation:isolate;color:#fff;margin-top:clamp(48px,6vw,
 .designed img{height:34px;width:auto;filter:brightness(0) invert(1)}
 .wordmark{margin-top:clamp(18px,2.4vw,36px)}
 .wordmark svg{width:100%;height:auto;display:block;overflow:visible}
-.wordmark text{font-family:"Laila",Georgia,serif;font-weight:700;fill:#fff;opacity:.09;letter-spacing:-.04em}
+.wordmark text{font-family:"Laila",Georgia,serif;font-weight:700;fill:#fff;opacity:.09;letter-spacing:.015em}
 @media(max-width:980px){.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 @media(max-width:480px){.foot-top{grid-template-columns:1fr}.designed{justify-content:flex-start;text-align:left}}
-.credit{font-size:12px;color:#9AA3A7;text-align:center;padding:0 var(--pad) 26px;margin:0;background:#000}
-.credit span{display:block;max-width:900px;margin:0 auto;padding-top:4px}
+.credit{font-size:12px;color:#9AA3A7;text-align:left;padding-bottom:26px;background:#000}
+.credit .designer-credit{margin-inline-start:auto;flex:none}
 
 /* ── SEARCH OVERLAY ────────────────────────── */
 .search{position:fixed;inset:0;z-index:150;background:rgba(18,29,38,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;padding:clamp(70px,10vh,120px) var(--pad) 30px;overflow-y:auto}
@@ -610,7 +617,7 @@ footer{position:relative;isolation:isolate;color:#fff;margin-top:clamp(48px,6vw,
 
 .plan-media{background:#062C73 none center/cover no-repeat}.plan-media img{min-height:100%;object-fit:cover}.brand img,.foot-brand img{object-fit:contain!important;object-position:left center}
 img{color:transparent}
-.designer-credit{display:inline-flex;align-items:center;gap:16px;color:#fff}.designer-credit img{display:inline-block;max-width:200px;width:200px;height:auto}.credit{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}.app-badges{display:flex!important}.news-form .interests{display:flex!important;flex-wrap:wrap}.events{grid-template-columns:1.25fr 1fr 1fr}.ev.feature{grid-row:span 2} @media(max-width:1080px){.events{grid-template-columns:1fr 1fr}.ev.feature{grid-row:auto;grid-column:1/-1}}@media(max-width:680px){.events{grid-template-columns:1fr}}
+.designer-credit{display:inline-flex;align-items:center;gap:16px;color:#fff}.designer-credit img{display:inline-block;max-width:100%;width:151px;height:auto}.credit{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}.app-badges{display:flex!important}.news-form .interests{display:flex!important;flex-wrap:wrap}.events{grid-template-columns:1.25fr 1fr 1fr}.ev.feature{grid-row:span 2} @media(max-width:1080px){.events{grid-template-columns:1fr 1fr}.ev.feature{grid-row:auto;grid-column:1/-1}}@media(max-width:680px){.events{grid-template-columns:1fr}}
 </style><style>
 .topshell-bg .housing-hero-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .topshell-bg{overflow:hidden}
@@ -676,8 +683,13 @@ img{color:transparent}
     background:linear-gradient(168deg,rgba(4,40,108,.72) 0%,rgba(5,48,129,.63) 39%,rgba(16,79,175,.34) 64%,rgba(31,120,226,.12) 81%,rgba(4,31,89,.65) 100%);
   }
 }
-.impact-bg::after,.press-card.a .bg::after{background:linear-gradient(90deg,#06183df2,#062C73b8)!important}
-.plan-media::after,.person::after,.qcard::after{background:linear-gradient(0deg,#06183df5 8%,#06183d99 45%,transparent 84%)!important}
+.impact-bg::after{background:linear-gradient(90deg,#06183df2,#062C73b8)!important}
+.plan-media::after,.person:not(.person--focused)::after,.qcard::after{background:linear-gradient(0deg,#06183df5 8%,#06183d99 45%,transparent 84%)!important}
+.person--focused .bg img{position:absolute;top:0;left:0;height:65%;object-position:center var(--photo-focus);transform-origin:center var(--photo-focus)}
+.person--vouchers{--photo-focus:33%}
+.person--support{--photo-focus:63%}
+.person--access{--photo-focus:35%}
+.person--focused::after{background:linear-gradient(180deg,transparent 27%,rgba(6,24,61,.20) 42%,#06183d 64%,#06183d 100%)}
 /* White and pale blue surfaces, navy headings and red primary actions. */
 .bg-ivory,.ip-tint{background:#edf3fb}
 .evidence{background:#f2f6fc}
@@ -763,7 +775,7 @@ img{color:transparent}
 <nav aria-label="Utility" class="utility"><span class="open"><i></i><span>Columbia, SC · (803) 254-3886</span></span><a href="index.html#events">Public Notices</a><a href="https://www.columbiahousingsc.org/custom-forms">Forms</a><a href="index.html#plan">Contact</a></nav>
 <div class="nav-inner">
 <a aria-label="Columbia Housing home" class="brand" href="index.html"><img alt="Columbia Housing" src="assets/img/logo.svg" width="288" height="83"></a>
-<ul class="nav-links" id="navLinks"><li><details><summary>Housing</summary><ul class="ch-sub"><li><a href="apply-for-housing.html">Apply for Housing &amp; Waitlists</a></li><li><a href="apply-for-housing.html#application-status">Check Application Status</a></li><li><a href="https://www.columbiahousingsc.org/housing">Programs &amp; Eligibility</a></li><li><a href="https://www.columbiahousingsc.org/communities">Communities</a></li><li><a href="apply-for-housing.html#application-help">Application Help</a></li></ul></details></li><li><details><summary>Residents</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/pay-rent-online">Pay Rent</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms/maintenance-request">Request Maintenance</a></li><li><a href="https://www.columbiahousingsc.org/reporting-changes">Report a Change</a></li><li><a href="https://www.columbiahousingsc.org/residents">Resident Services</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms">Forms</a></li></ul></details></li><li><details><summary>Landlords</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/becoming-a-landlord">Become a Landlord</a></li><li><a href="https://www.columbiahousingsc.org/landlord-owner-agent-portal">Landlord Portal</a></li><li><a href="https://www.columbiahousingsc.org/listing-available-units">List a Rental Unit</a></li><li><a href="https://www.columbiahousingsc.org/landlords">Payments &amp; Inspections</a></li></ul></details></li><li><details><summary>Vendors</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/procurement">Bid Opportunities</a></li><li><a href="https://ha.internationaleprocurement.com/registration/vendor/vendor_signup.html">Vendor Registration</a></li><li><a href="https://www.columbiahousingsc.org/procurement">Procurement Policies</a></li></ul></details></li><li><details><summary>Updates</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/news-archives">Public Notices</a></li><li><a href="https://www.columbiahousingsc.org/news-archives">News</a></li><li><a href="https://www.columbiahousingsc.org/calendar">Events</a></li><li><a href="https://www.columbiahousingsc.org/alerts-signup">Email Updates</a></li></ul></details></li><li><details><summary>About</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/about-us">Mission &amp; Leadership</a></li><li><a href="https://www.columbiahousingsc.org/board-of-commissioners">Board of Commissioners</a></li><li><a href="https://www.columbiahousingsc.org/board-meetings">Meetings &amp; Agendas</a></li><li><a href="https://www.columbiahousingsc.org/career-opportunities">Careers</a></li></ul></details></li></ul>
+<ul class="nav-links" id="navLinks"><li><details><summary>Housing</summary><ul class="ch-sub"><li><a href="apply-for-housing.html">Apply for Housing &amp; Waitlists</a></li><li><a href="apply-for-housing.html#application-status">Check Application Status</a></li><li><a href="https://www.columbiahousingsc.org/housing">Programs &amp; Eligibility</a></li><li><a href="https://www.columbiahousingsc.org/communities">Communities</a></li><li><a href="apply-for-housing.html#application-help">Application Help</a></li></ul></details></li><li><details><summary>Residents</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/pay-rent-online">Pay Rent</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms/maintenance-request">Request Maintenance</a></li><li><a href="https://www.columbiahousingsc.org/reporting-changes">Report a Change</a></li><li><a href="https://www.columbiahousingsc.org/residents">Resident Services</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms">Forms</a></li></ul></details></li><li><details><summary>Landlords</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/becoming-a-landlord">Become a Landlord</a></li><li><a href="https://www.columbiahousingsc.org/landlord-owner-agent-portal">Landlord Portal</a></li><li><a href="https://www.columbiahousingsc.org/listing-available-units">List a Rental Unit</a></li><li><a href="https://www.columbiahousingsc.org/landlords">Landlord Resources</a></li></ul></details></li><li><details><summary>Vendors</summary><ul class="ch-sub"><li><a href="https://ha.internationaleprocurement.com/requests.html?company_id=49948">Bid Opportunities</a></li><li><a href="https://ha.internationaleprocurement.com/registration/vendor/vendor_signup.html">Vendor Registration</a></li><li><a href="https://www.columbiahousingsc.org/procurement">Procurement Guidance</a></li></ul></details></li><li><details><summary>Updates</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/news-archives">Public Notices</a></li><li><a href="https://www.columbiahousingsc.org/news-archives">News</a></li><li><a href="https://www.columbiahousingsc.org/calendar">Events</a></li><li><a href="https://www.columbiahousingsc.org/alerts-signup">Email Updates</a></li></ul></details></li><li><details><summary>About</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/about-us">Mission &amp; Leadership</a></li><li><a href="https://www.columbiahousingsc.org/board-of-commissioners">Board of Commissioners</a></li><li><a href="https://www.columbiahousingsc.org/board-meetings">Meetings &amp; Agendas</a></li><li><a href="https://www.columbiahousingsc.org/career-opportunities">Careers</a></li></ul></details></li></ul>
 <div class="nav-cta">
 <button aria-label="Search Columbia Housing" class="icon-btn" id="openSearch"><svg height="18" width="18"><use href="#i-search"></use></svg></button>
 <span class="ch-decor" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 14.5A8.5 8.5 0 0 1 9.5 3.2a8.6 8.6 0 1 0 11.3 11.3Z"></path><path d="M17.5 3v5M15 5.5h5"></path></svg></span><a class="btn" href="apply-for-housing.html">Apply</a>
@@ -773,7 +785,7 @@ img{color:transparent}
 </div>
 </header>
 <div aria-hidden="true" aria-label="Menu" class="drawer" id="drawer">
-<ul class="drawer-links"><li><details><summary>Housing</summary><ul class="ch-sub"><li><a href="apply-for-housing.html">Apply for Housing &amp; Waitlists</a></li><li><a href="apply-for-housing.html#application-status">Check Application Status</a></li><li><a href="https://www.columbiahousingsc.org/housing">Programs &amp; Eligibility</a></li><li><a href="https://www.columbiahousingsc.org/communities">Communities</a></li><li><a href="apply-for-housing.html#application-help">Application Help</a></li></ul></details></li><li><details><summary>Residents</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/pay-rent-online">Pay Rent</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms/maintenance-request">Request Maintenance</a></li><li><a href="https://www.columbiahousingsc.org/reporting-changes">Report a Change</a></li><li><a href="https://www.columbiahousingsc.org/residents">Resident Services</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms">Forms</a></li></ul></details></li><li><details><summary>Landlords</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/becoming-a-landlord">Become a Landlord</a></li><li><a href="https://www.columbiahousingsc.org/landlord-owner-agent-portal">Landlord Portal</a></li><li><a href="https://www.columbiahousingsc.org/listing-available-units">List a Rental Unit</a></li><li><a href="https://www.columbiahousingsc.org/landlords">Payments &amp; Inspections</a></li></ul></details></li><li><details><summary>Vendors</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/procurement">Bid Opportunities</a></li><li><a href="https://ha.internationaleprocurement.com/registration/vendor/vendor_signup.html">Vendor Registration</a></li><li><a href="https://www.columbiahousingsc.org/procurement">Procurement Policies</a></li></ul></details></li><li><details><summary>Updates</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/news-archives">Public Notices</a></li><li><a href="https://www.columbiahousingsc.org/news-archives">News</a></li><li><a href="https://www.columbiahousingsc.org/calendar">Events</a></li><li><a href="https://www.columbiahousingsc.org/alerts-signup">Email Updates</a></li></ul></details></li><li><details><summary>About</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/about-us">Mission &amp; Leadership</a></li><li><a href="https://www.columbiahousingsc.org/board-of-commissioners">Board of Commissioners</a></li><li><a href="https://www.columbiahousingsc.org/board-meetings">Meetings &amp; Agendas</a></li><li><a href="https://www.columbiahousingsc.org/career-opportunities">Careers</a></li></ul></details></li></ul>
+<ul class="drawer-links"><li><details><summary>Housing</summary><ul class="ch-sub"><li><a href="apply-for-housing.html">Apply for Housing &amp; Waitlists</a></li><li><a href="apply-for-housing.html#application-status">Check Application Status</a></li><li><a href="https://www.columbiahousingsc.org/housing">Programs &amp; Eligibility</a></li><li><a href="https://www.columbiahousingsc.org/communities">Communities</a></li><li><a href="apply-for-housing.html#application-help">Application Help</a></li></ul></details></li><li><details><summary>Residents</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/pay-rent-online">Pay Rent</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms/maintenance-request">Request Maintenance</a></li><li><a href="https://www.columbiahousingsc.org/reporting-changes">Report a Change</a></li><li><a href="https://www.columbiahousingsc.org/residents">Resident Services</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms">Forms</a></li></ul></details></li><li><details><summary>Landlords</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/becoming-a-landlord">Become a Landlord</a></li><li><a href="https://www.columbiahousingsc.org/landlord-owner-agent-portal">Landlord Portal</a></li><li><a href="https://www.columbiahousingsc.org/listing-available-units">List a Rental Unit</a></li><li><a href="https://www.columbiahousingsc.org/landlords">Landlord Resources</a></li></ul></details></li><li><details><summary>Vendors</summary><ul class="ch-sub"><li><a href="https://ha.internationaleprocurement.com/requests.html?company_id=49948">Bid Opportunities</a></li><li><a href="https://ha.internationaleprocurement.com/registration/vendor/vendor_signup.html">Vendor Registration</a></li><li><a href="https://www.columbiahousingsc.org/procurement">Procurement Guidance</a></li></ul></details></li><li><details><summary>Updates</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/news-archives">Public Notices</a></li><li><a href="https://www.columbiahousingsc.org/news-archives">News</a></li><li><a href="https://www.columbiahousingsc.org/calendar">Events</a></li><li><a href="https://www.columbiahousingsc.org/alerts-signup">Email Updates</a></li></ul></details></li><li><details><summary>About</summary><ul class="ch-sub"><li><a href="https://www.columbiahousingsc.org/about-us">Mission &amp; Leadership</a></li><li><a href="https://www.columbiahousingsc.org/board-of-commissioners">Board of Commissioners</a></li><li><a href="https://www.columbiahousingsc.org/board-meetings">Meetings &amp; Agendas</a></li><li><a href="https://www.columbiahousingsc.org/career-opportunities">Careers</a></li></ul></details></li></ul>
 <div class="drawer-cta"><a class="btn" href="apply-for-housing.html">Apply</a><a class="btn btn--glass" href="index.html#plan">Contact</a></div>
 </div>
 <main id="main">
@@ -794,18 +806,18 @@ img{color:transparent}
 <h1 id="hero-h">Affordable housing <span class="it">starts here.</span></h1>
 <div class="hero-grid">
 <div>
-<p class="lede">Explore housing options, check an application, and find resident services in Columbia, Cayce, and surrounding communities.</p>
+<p class="lede">Find housing waitlists, check an application, or access resident services in Columbia, Cayce, and nearby communities.</p>
 <div class="hero-actions">
 <a class="btn hero-apply" href="apply-for-housing.html">Apply for Housing <i class="dot"><svg height="14" width="14"><use href="#i-arrow"></use></svg></i></a>
 <a class="btn btn--glass" href="apply-for-housing.html#application-status">Check Application Status <i class="dot"><svg height="14" width="14"><use href="#i-arrow"></use></svg></i></a>
 </div>
 <button type="button" class="motion-btn" id="heroMotion" aria-pressed="false"><svg width="16" height="16" aria-hidden="true"><use href="#i-pause"></use></svg><span>Pause video</span></button></div>
 <aside aria-label="Housing waitlists" class="hero-side">
-<div class="ph"><img alt="" loading="eager" src="assets/img/pexels-28537915.webp"></div>
+<div class="ph"><img alt="" loading="eager" src="assets/img/pexels-8293777.webp"></div>
 <div class="in">
 <span class="n">Housing applications</span>
 <div class="k">Housing <span>waitlists</span></div>
-<p>Check openings, eligibility, and application instructions by property or program.</p>
+<p>See who can apply, when the waitlist opens or closes, and how to apply.</p>
 <a href="apply-for-housing.html#waitlists">View waitlists</a>
 </div>
 </aside>
@@ -813,14 +825,14 @@ img{color:transparent}
 <nav aria-label="Quick start" class="quick">
 <a class="qcard" href="apply-for-housing.html"><img alt="" loading="eager" src="assets/img/pexels-18153132.webp"><span class="num">01</span><span class="arrow"><svg height="15" width="15"><use href="#i-arrow"></use></svg></span><b>Apply for Housing</b><small>Find a housing waitlist</small></a>
 <a class="qcard" href="apply-for-housing.html#application-status"><img alt="" loading="eager" src="assets/img/pexels-9064307.webp"><span class="num">02</span><span class="arrow"><svg height="15" width="15"><use href="#i-arrow"></use></svg></span><b>Check Application Status</b><small>Track an existing application</small></a>
-<a class="qcard" href="https://www.columbiahousingsc.org/pay-rent-online"><img alt="" loading="eager" src="assets/img/pexels-7821495.webp"><span class="num">03</span><span class="arrow"><svg height="15" width="15"><use href="#i-arrow"></use></svg></span><b>Pay Rent</b><small>Access the payment portal</small></a>
-<a class="qcard" href="https://www.columbiahousingsc.org/custom-forms/maintenance-request"><img alt="" loading="eager" src="assets/img/pexels-5768284.webp"><span class="num">04</span><span class="arrow"><svg height="15" width="15"><use href="#i-arrow"></use></svg></span><b>Request Maintenance</b><small>Report a repair</small></a>
+<a class="qcard" href="https://www.columbiahousingsc.org/pay-rent-online"><img alt="" loading="eager" src="assets/img/pexels-7821495.webp"><span class="num">03</span><span class="arrow"><svg height="15" width="15"><use href="#i-arrow"></use></svg></span><b>Pay Rent</b><small>Find the online payment link</small></a>
+<a class="qcard qcard--maintenance" href="https://www.columbiahousingsc.org/custom-forms/maintenance-request"><img alt="" loading="eager" src="assets/img/pexels-5768107.webp"><span class="num">04</span><span class="arrow"><svg height="15" width="15"><use href="#i-arrow"></use></svg></span><b>Request Maintenance</b><small>Submit a routine repair request</small></a>
 </nav>
 </div>
 </section>
 
 <div class="wrap" style="padding-top:clamp(28px,3vw,44px)">
-<div class="marquee-label">Our priorities</div>
+<div class="marquee-label">Popular services</div>
 <div aria-label="Columbia Housing services" class="marquee">
 <div class="marquee-track" id="mqTrack"></div>
 </div>
@@ -838,7 +850,7 @@ img{color:transparent}
 <p class="lede">Find housing notices, Board meetings, community events, and public reports.</p>
 </div>
 </div>
-<div aria-label="Filter events" class="filters rv" role="group">
+<div aria-label="Filter notices and resources" class="filters rv" role="group">
 <button aria-pressed="true" class="path" data-f="all">All resources</button>
 <button aria-pressed="false" class="path" data-f="housing">Housing</button>
 <button aria-pressed="false" class="path" data-f="meetings">Meetings</button>
@@ -848,7 +860,7 @@ img{color:transparent}
 <div class="events-foot rv">
 <a class="btn" href="https://www.columbiahousingsc.org/news-archives">View Public Notices</a>
 <a class="btn btn--ghost" href="https://www.columbiahousingsc.org/calendar">View Calendar</a>
-<small>Confirm dates and details on the official listing.</small>
+<small>Check official notices for current dates and instructions.</small>
 </div>
 </div>
 </section>
@@ -867,19 +879,19 @@ img{color:transparent}
 <div class="inits">
 <a class="init wide feature rv" href="apply-for-housing.html">
 <div class="pic ph"><img alt="" loading="lazy" src="assets/img/pexels-7189284.webp"><span class="tag">Start here</span></div>
-<div class="in"><h3>Apply for Housing</h3><p>Review waitlists and eligibility before you begin.</p><span class="go">View waitlists <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
+<div class="in"><h3>Apply for Housing</h3><p>Review waitlists and eligibility before you begin.</p><span class="go">See how to apply <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
 </a>
-<a class="init wide accent rv" href="https://www.columbiahousingsc.org/residents">
-<div class="pic ph"><img alt="" loading="lazy" src="assets/img/pexels-8292806.webp"><span class="tag">Residents</span></div>
+<a class="init wide accent rv init--residents" href="https://www.columbiahousingsc.org/residents">
+<div class="pic ph"><img alt="" loading="lazy" src="assets/img/pexels-7678149.webp"><span class="tag">Residents</span></div>
 <div class="in"><h3>Resident Services</h3><p>Pay rent, request a repair, or find support for your household.</p><span class="go">Get resident support <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
 </a>
 <a class="init rv" href="https://www.columbiahousingsc.org/communities">
 <div class="pic ph"><img alt="" loading="lazy" src="assets/img/pexels-9494281.webp"><span class="tag rose">Properties</span></div>
-<div class="in"><h3>Communities</h3><p>Explore Columbia Housing communities and property information.</p><span class="go">Browse communities <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
+<div class="in"><h3>Communities</h3><p>Find properties, locations, and contact information.</p><span class="go">Browse communities <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
 </a>
 <a class="init rv" href="https://www.columbiahousingsc.org/landlords">
 <div class="pic ph"><img alt="" loading="lazy" src="assets/img/pexels-7821682.webp"><span class="tag teal">Landlords</span></div>
-<div class="in"><h3>Landlord Resources</h3><p>Learn how to participate, list a unit, or access the owner portal.</p><span class="go">Explore landlord services <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
+<div class="in"><h3>Landlord Resources</h3><p>Learn how to accept vouchers, list a unit, or use the owner portal.</p><span class="go">Explore landlord services <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
 </a>
 <a class="init rv" href="https://www.columbiahousingsc.org/custom-forms">
 <div class="pic ph"><img alt="" loading="lazy" src="assets/img/pexels-6169161.webp"><span class="tag">Forms</span></div>
@@ -887,7 +899,7 @@ img{color:transparent}
 </a>
 <a class="init rv" href="https://www.columbiahousingsc.org/procurement">
 <div class="pic ph"><img alt="" loading="lazy" src="assets/img/pexels-8453825.webp"><span class="tag teal">Vendors</span></div>
-<div class="in"><h3>Bid Opportunities</h3><p>Find current solicitations, addenda, and vendor registration.</p><span class="go">View procurement <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
+<div class="in"><h3>Bid Opportunities</h3><p>Find solicitations, addenda, and vendor registration details.</p><span class="go">View procurement <svg height="16" width="16"><use href="#i-arrow"></use></svg></span></div>
 </a>
 </div>
 </div>
@@ -929,12 +941,12 @@ img{color:transparent}
 <a class="btn btn--ghost" href="https://www.columbiahousingsc.org/news-archives">View All News </a>
 </div>
 <div class="posts">
-<a class="post rv" href="https://www.columbiahousingsc.org/news-archives"><div class="thumb ph"><img alt="" loading="lazy" src="assets/img/pexels-8148350.webp"><span class="kicker">Housing</span></div>
-<div class="body"><h4>Find housing waitlist notices</h4><span class="go">Learn more <svg height="15" width="15"><use href="#i-arrow"></use></svg></span></div></a>
-<a class="post rv" href="https://www.columbiahousingsc.org/residents"><div class="thumb ph"><img alt="" loading="lazy" src="assets/img/pexels-6684498.webp"><span class="kicker" style="background:var(--teal)">Resident services</span></div>
-<div class="body"><h4>Explore resident programs</h4><span class="go">Learn more <svg height="15" width="15"><use href="#i-arrow"></use></svg></span></div></a>
-<a class="post rv" href="https://www.columbiahousingsc.org/board-meetings"><div class="thumb ph"><img alt="" loading="lazy" src="assets/img/pexels-15325468.webp" style="object-position:center 35%"><span class="kicker" style="background:var(--brick)">Public meetings</span></div>
-<div class="body"><h4>Find Board meeting information</h4><span class="go">Learn more <svg height="15" width="15"><use href="#i-arrow"></use></svg></span></div></a>
+<a class="post rv" href="apply-for-housing.html#waitlists"><div class="thumb ph"><img alt="" loading="lazy" src="assets/img/pexels-8148350.webp"><span class="kicker">Housing</span></div>
+<div class="body"><h4>Find housing waitlist notices</h4><span class="go">View waitlists <svg height="15" width="15"><use href="#i-arrow"></use></svg></span></div></a>
+<a class="post rv" href="https://www.columbiahousingsc.org/resident-and-strategic-initiatives"><div class="thumb ph"><img alt="" loading="lazy" src="assets/img/pexels-6684498.webp"><span class="kicker" style="background:var(--teal)">Resident services</span></div>
+<div class="body"><h4>Explore resident programs</h4><span class="go">View programs <svg height="15" width="15"><use href="#i-arrow"></use></svg></span></div></a>
+<a class="post rv" href="https://www.columbiahousingsc.org/board-meetings"><div class="thumb ph"><img alt="" loading="lazy" src="assets/img/pexels-6949523.webp" style="object-position:center 58%"><span class="kicker" style="background:var(--brick)">Public meetings</span></div>
+<div class="body"><h4>Find Board meeting information</h4><span class="go">View meetings <svg height="15" width="15"><use href="#i-arrow"></use></svg></span></div></a>
 </div>
 </div>
 </section>
@@ -958,10 +970,10 @@ img{color:transparent}
 </div>
 <div aria-label="Housing and community programs" class="people-rail rv" id="rail" tabindex="0">
 <a class="person" href="https://www.columbiahousingsc.org/public-housing-program"><div class="bg"><img alt="" loading="lazy" src="assets/img/pexels-27451770.webp"></div><div class="in"><span class="season">Housing</span><h4>Public Housing</h4><span class="dt">Explore program information</span><p>Explore affordable rental options by community.</p><span class="go">View details <svg height="14" width="14"><use href="#i-arrow"></use></svg></span></div></a>
-<a class="person" href="https://www.columbiahousingsc.org/housing-choice-voucher-hcv-section-8-program"><div class="bg"><img alt="" loading="lazy" src="assets/img/pexels-31656143.webp"></div><div class="in"><span class="season teal">Rental assistance</span><h4>Housing Choice Vouchers</h4><span class="dt">Learn about Section 8</span><p>Learn how voucher assistance works in the private rental market.</p><span class="go">Learn about vouchers <svg height="14" width="14"><use href="#i-arrow"></use></svg></span></div></a>
-<a class="person" href="https://www.columbiahousingsc.org/residents"><div class="bg"><img alt="" loading="lazy" src="assets/img/pexels-14664023.webp"></div><div class="in"><span class="season rose">Support</span><h4>Resident Services</h4><span class="dt">Find programs and resources</span><p>Find programs, forms, and services for your household.</p><span class="go">View resident services <svg height="14" width="14"><use href="#i-arrow"></use></svg></span></div></a>
+<a class="person person--focused person--vouchers" href="https://www.columbiahousingsc.org/housing-choice-voucher-hcv-section-8-program"><div class="bg"><img alt="" loading="lazy" src="assets/img/pexels-7641899.webp"></div><div class="in"><span class="season teal">Rental assistance</span><h4>Housing Choice Vouchers</h4><span class="dt">Learn about Section 8</span><p>Learn how voucher assistance works in the private rental market.</p><span class="go">Learn about vouchers <svg height="14" width="14"><use href="#i-arrow"></use></svg></span></div></a>
+<a class="person person--focused person--support" href="https://www.columbiahousingsc.org/residents"><div class="bg"><img alt="" loading="lazy" src="assets/img/pexels-5638599.webp"></div><div class="in"><span class="season rose">Support</span><h4>Resident Services</h4><span class="dt">Find programs and resources</span><p>Find family, senior, and youth programs and services.</p><span class="go">View resident services <svg height="14" width="14"><use href="#i-arrow"></use></svg></span></div></a>
 <a class="person" href="https://www.columbiahousingsc.org/communities"><div class="bg"><img alt="" loading="lazy" src="assets/img/pexels-31809357.webp"></div><div class="in"><span class="season">Properties</span><h4>Communities</h4><span class="dt">Explore housing locations</span><p>See property information and contact details.</p><span class="go">Browse communities <svg height="14" width="14"><use href="#i-arrow"></use></svg></span></div></a>
-<a class="person" href="https://www.columbiahousingsc.org/reasonable-accommodations"><div class="bg"><img alt="" loading="lazy" src="assets/img/pexels-34328481.webp"></div><div class="in"><span class="season teal">Access</span><h4>Reasonable Accommodations</h4><span class="dt">Get help accessing services</span><p>Find support for accessing housing programs and services.</p><span class="go">Explore resources <svg height="14" width="14"><use href="#i-arrow"></use></svg></span></div></a>
+<a class="person person--focused person--access" href="https://www.columbiahousingsc.org/reasonable-accommodations"><div class="bg"><img alt="" loading="lazy" src="assets/img/pexels-33768860.webp"></div><div class="in"><span class="season teal">Access</span><h4>Reasonable Accommodations</h4><span class="dt">Get help accessing services</span><p>Learn how to request a disability accommodation.</p><span class="go">Explore resources <svg height="14" width="14"><use href="#i-arrow"></use></svg></span></div></a>
 </div>
 </div>
 </div>
@@ -978,7 +990,7 @@ img{color:transparent}
 <div class="bar" style="background:var(--brick)"></div>
 <div class="in">
 <h3>Housing &amp; applications</h3>
-<p>Start an application or find help with a waitlist.</p>
+<p>Find a waitlist, review program requirements, or get application help.</p>
 <ul class="listing">
 <li><a href="apply-for-housing.html"><span><strong>Apply for Housing</strong><em>Review waitlists and openings</em></span><svg height="16" width="16"><use href="#i-arrow"></use></svg></a></li>
 <li><a href="apply-for-housing.html#application-status"><span><strong>Check Application Status</strong><em>Track an existing application</em></span><svg height="16" width="16"><use href="#i-arrow"></use></svg></a></li>
@@ -990,7 +1002,7 @@ img{color:transparent}
 </div>
 </article>
 <article class="pillar rv">
-<div class="pic"><img alt="" loading="lazy" src="assets/img/pexels-7217975.webp"><span class="no">Residents</span></div>
+<div class="pic"><img alt="" loading="lazy" src="assets/img/pexels-6964134.webp"><span class="no">Residents</span></div>
 <div class="bar" style="background:var(--teal)"></div>
 <div class="in">
 <h3>Resident services</h3>
@@ -1014,8 +1026,8 @@ img{color:transparent}
 <ul class="listing">
 <li><a href="https://www.columbiahousingsc.org/news-archives"><span><strong>Public Notices</strong><em>Read agency announcements</em></span><svg height="16" width="16"><use href="#i-arrow"></use></svg></a></li>
 <li><a href="https://www.columbiahousingsc.org/annual-plans"><span><strong>Annual Plans</strong><em>Find published plans</em></span><svg height="16" width="16"><use href="#i-arrow"></use></svg></a></li>
-<li><a href="https://www.columbiahousingsc.org/board-meetings"><span><strong>Meetings &amp; Agendas</strong><em>View Board meeting information</em></span><svg height="16" width="16"><use href="#i-arrow"></use></svg></a></li>
-<li><a href="https://www.columbiahousingsc.org/contact-us"><span><strong>Contact</strong><em>Ask for assistance</em></span><svg height="16" width="16"><use href="#i-arrow"></use></svg></a></li>
+<li><a href="https://www.columbiahousingsc.org/board-meetings"><span><strong>Meetings &amp; Agendas</strong><em>Find meeting dates and materials</em></span><svg height="16" width="16"><use href="#i-arrow"></use></svg></a></li>
+<li><a href="https://www.columbiahousingsc.org/department-directory"><span><strong>Department Directory</strong><em>Find the right office</em></span><svg height="16" width="16"><use href="#i-arrow"></use></svg></a></li>
 </ul>
 <div class="cats"><span>Notices</span><span>Reports</span></div>
 <a class="foot" href="https://www.columbiahousingsc.org/news-archives">Explore resources</a>
@@ -1028,9 +1040,9 @@ img{color:transparent}
 <div class="wrap">
 <div class="sec-head rv">
 <div><span class="n">06 — Contact</span><h2 id="plan-h">Get help from Columbia Housing</h2></div>
-<div class="head-r"><p class="lede">Find our office, opening hours, and answers to common housing questions.</p></div>
+<div class="head-r"><p class="lede">Find our office, business hours, and answers to common questions.</p></div>
 </div>
-<div aria-label="Planning topics" class="plan-tabs rv" role="tablist">
+<div aria-label="Contact and help topics" class="plan-tabs rv" role="tablist">
 <button aria-controls="pp" aria-pressed="true" aria-selected="true" class="path" data-p="0" id="pt-0" role="tab">Directions</button>
 <button aria-controls="pp" aria-pressed="false" aria-selected="false" class="path" data-p="1" id="pt-1" role="tab">Office &amp; hours</button>
 <button aria-controls="pp" aria-pressed="false" aria-selected="false" class="path" data-p="2" id="pt-2" role="tab">FAQs</button>
@@ -1059,7 +1071,7 @@ img{color:transparent}
 <div>
 <span class="n">Online services</span>
 <h3 style="margin-top:14px">Find forms and resources</h3>
-<p>Use these links to reach official Columbia Housing forms and program information.</p>
+<p>Find official forms for resident requests, and compare housing programs.</p>
 </div>
 <div>
 <div class="app-badges">
@@ -1078,10 +1090,10 @@ img{color:transparent}
 <div class="in">
 <span class="n">08 — Email updates</span>
 <h2 id="news-h">Stay <span class="it">informed.</span></h2>
-<p class="lede">Choose the Columbia Housing topics you want to hear about.</p>
+<p class="lede">Preview your topics below or sign up for official Columbia Housing alerts.</p>
 <form class="news-form" id="newsForm" novalidate="">
 <fieldset class="interests">
-<legend>I'm interested in</legend>
+<legend>Topics to preview</legend>
 <button aria-pressed="true" class="int" type="button">Housing openings</button>
 <button aria-pressed="false" class="int" type="button">Public notices</button>
 <button aria-pressed="false" class="int" type="button">Resident services</button>
@@ -1091,10 +1103,10 @@ img{color:transparent}
 <div class="news-row">
 <label class="sr-only" for="nEmail">Email address</label>
 <input autocomplete="email" id="nEmail" placeholder="you@email.com" required="" type="email">
-<button class="btn" type="submit">Subscribe<i class="dot"><svg height="14" width="14"><use href="#i-arrow"></use></svg></i></button>
+<button class="btn" type="submit">Preview<i class="dot"><svg height="14" width="14"><use href="#i-arrow"></use></svg></i></button>
 </div>
-<p class="news-note">Sign up for official alerts or manage your preferences. <a href="https://www.columbiahousingsc.org/alerts-signup">Official email signup</a></p>
-<p class="news-ok" id="newsOk" role="status">This is a demo. Use the official signup link to subscribe.</p>
+<p class="news-note">This form is a preview. Use the official signup to subscribe or change your preferences. <a href="https://www.columbiahousingsc.org/alerts-signup">Official email signup</a></p>
+<p class="news-ok" id="newsOk" role="status">Preview complete. Use Official email signup to subscribe.</p>
 </form>
 </div>
 <div class="news-media"><img alt="" loading="lazy" src="assets/img/pexels-6249395.webp"></div>
@@ -1105,10 +1117,10 @@ img{color:transparent}
 <footer id="footer">
 <div class="wrap">
 <div class="foot-top">
-<div class="foot-brand"><img alt="Columbia Housing" loading="lazy" src="assets/img/logo.svg" width="288" height="83"><p>Affordable housing and resident services in Columbia, Cayce, and surrounding communities.</p><address><b>Columbia Housing</b><br>1917 Harden Street<br>Columbia, SC 29204<br><a href="tel:+18032543886">(803) 254-3886</a></address></div>
+<div class="foot-brand"><img alt="Columbia Housing" loading="lazy" src="assets/img/logo.svg" width="288" height="83"><p>Affordable housing, rental assistance, and resident services in the Columbia area.</p><address><b>Columbia Housing</b><br>1917 Harden Street<br>Columbia, SC 29204<br><a href="tel:+18032543886">(803) 254-3886</a></address></div>
 <nav aria-labelledby="f1" class="foot-col"><h2 id="f1">Housing</h2><ul><li><a href="apply-for-housing.html">Apply for Housing</a></li><li><a href="apply-for-housing.html#application-status">Check Application Status</a></li><li><a href="https://www.columbiahousingsc.org/housing">Programs &amp; Eligibility</a></li><li><a href="https://www.columbiahousingsc.org/communities">Communities</a></li><li><a href="apply-for-housing.html#application-help">Application Help</a></li><li><a href="https://www.columbiahousingsc.org/reasonable-accommodations">Reasonable Accommodations</a></li></ul></nav>
 <nav aria-labelledby="f2" class="foot-col"><h2 id="f2">Residents</h2><ul><li><a href="https://www.columbiahousingsc.org/pay-rent-online">Pay Rent</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms/maintenance-request">Request Maintenance</a></li><li><a href="https://www.columbiahousingsc.org/reporting-changes">Report a Change</a></li><li><a href="https://www.columbiahousingsc.org/residents">Resident Services</a></li><li><a href="https://www.columbiahousingsc.org/custom-forms">Forms</a></li></ul></nav>
-<nav aria-labelledby="f3" class="foot-col"><h2 id="f3">Partners</h2><ul><li><a href="https://www.columbiahousingsc.org/becoming-a-landlord">Become a Landlord</a></li><li><a href="https://www.columbiahousingsc.org/landlord-owner-agent-portal">Landlord Portal</a></li><li><a href="https://www.columbiahousingsc.org/procurement">Bid Opportunities</a></li><li><a href="https://ha.internationaleprocurement.com/registration/vendor/vendor_signup.html">Vendor Registration</a></li><li><a href="https://www.columbiahousingsc.org/procurement">Procurement Policies</a></li></ul></nav>
+<nav aria-labelledby="f3" class="foot-col"><h2 id="f3">Partners</h2><ul><li><a href="https://www.columbiahousingsc.org/becoming-a-landlord">Become a Landlord</a></li><li><a href="https://www.columbiahousingsc.org/landlord-owner-agent-portal">Landlord Portal</a></li><li><a href="https://ha.internationaleprocurement.com/requests.html?company_id=49948">Bid Opportunities</a></li><li><a href="https://ha.internationaleprocurement.com/registration/vendor/vendor_signup.html">Vendor Registration</a></li><li><a href="https://www.columbiahousingsc.org/procurement">Procurement Guidance</a></li></ul></nav>
 <nav aria-labelledby="f4" class="foot-col"><h2 id="f4">Columbia Housing</h2><ul><li><a href="https://www.columbiahousingsc.org/about-us">Mission &amp; Leadership</a></li><li><a href="https://www.columbiahousingsc.org/board-of-commissioners">Board of Commissioners</a></li><li><a href="https://www.columbiahousingsc.org/news-archives">Public Notices</a></li><li><a href="https://www.columbiahousingsc.org/alerts-signup">Email Updates</a></li><li><a href="https://www.columbiahousingsc.org/contact-us">Contact</a></li></ul></nav>
 </div>
 <div class="foot-bottom">
@@ -1118,12 +1130,12 @@ img{color:transparent}
 <a aria-label="YouTube" href="https://www.youtube.com/channel/UC330f6VRwkkILbj-aHFECEQ"><svg height="17" width="17"><use href="#i-yt"></use></svg></a>
 <a aria-label="LinkedIn" href="https://www.linkedin.com/company/columbia-housing/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9v10M5 5v.1M10 19V9m0 4a4 4 0 0 1 8 0v6"></path></svg></a>
 </div>
-<div class="foot-legal"><a href="https://www.columbiahousingsc.org/copycred#accessibility">Accessibility</a><a href="https://www.columbiahousingsc.org/copycred">Privacy Policy</a><a href="https://www.columbiahousingsc.org/site-map">Sitemap</a><span>© 2026 Columbia Housing</span></div>
+<div class="foot-legal"><a href="https://www.columbiahousingsc.org/copycred">Accessibility</a><a href="https://www.columbiahousingsc.org/copycred">Privacy Policy</a><a href="https://www.columbiahousingsc.org/site-map">Sitemap</a><span>© 2026 Columbia Housing</span></div>
 </div>
-<div aria-hidden="true" class="wordmark"><svg viewBox="0 0 1200 118"><text transform="scale(1 .56)" font-size="236" lengthAdjust="spacingAndGlyphs" text-anchor="middle" textLength="1190" x="600" y="178">COLUMBIA HOUSING</text></svg></div>
+<div aria-hidden="true" class="wordmark"><svg viewBox="0 0 1200 118"><text transform="scale(1 .56)" font-size="236" lengthAdjust="spacingAndGlyphs" textLength="1200" x="0" y="178">COLUMBIA HOUSING</text></svg></div>
 </div>
 </footer>
-<p class="credit"><span>Columbia Housing website redesign concept. Stock imagery is illustrative.</span><span class="designer-credit"><img alt="Website designed by Compunnel Digital" height="40" src="assets/img/compunnel-digital.svg" width="200"></span></p>
+<p class="credit wrap"><span>Columbia Housing website redesign concept. Stock imagery is illustrative.</span><span class="designer-credit"><img alt="Website designed by Compunnel Digital" height="40" src="assets/img/compunnel-digital-light.svg" width="151"></span></p>
 <button aria-label="Back to top" class="to-top" id="toTop"><svg height="18" width="18"><use href="#i-up"></use></svg></button>
 <div aria-labelledby="search-h" aria-modal="true" class="search" id="search" role="dialog">
 <button aria-label="Close search" class="icon-btn search-close" id="closeSearch"><svg height="18" width="18"><use href="#i-x"></use></svg></button>
@@ -1136,11 +1148,11 @@ img{color:transparent}
 </div>
 <span class="ch-decor ch-access" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="6.7" r="1"></circle><path d="M6.5 10h11M12 10v4m0 0-3 4m3-4 3 4"></path></svg></span><script>(function(){
 const IMG = path => path;
-const EVENTS = [{"title": "Housing waitlist notices", "category": "housing", "time": "Current notices", "blurb": "Review new application windows and property-specific requirements.", "img": "assets/img/pexels-11631278.webp", "href": "https://www.columbiahousingsc.org/news-archives", "where": "Columbia Housing", "tag": "Waitlists"}, {"title": "Board meetings", "category": "meetings", "time": "Meeting calendar", "blurb": "Find upcoming meetings and published materials.", "img": "assets/img/pexels-15377735.webp", "href": "https://www.columbiahousingsc.org/board-meetings", "where": "Columbia Housing", "tag": "Meetings"}, {"title": "Community calendar", "category": "community", "time": "Calendar", "blurb": "Find events and agency activities.", "img": "assets/img/pexels-33688258.webp", "href": "https://www.columbiahousingsc.org/calendar", "where": "Columbia Housing", "tag": "Events"}, {"title": "Resident programs", "category": "community", "time": "Programs", "blurb": "Explore resident support and activities.", "img": "assets/img/pexels-27471164.webp", "href": "https://www.columbiahousingsc.org/residents", "where": "Columbia Housing", "tag": "Services"}, {"title": "Agency plans & reports", "category": "meetings", "time": "Public records", "blurb": "Find agency plans and public documents.", "img": "assets/img/pexels-7433125.webp", "href": "https://www.columbiahousingsc.org/annual-plans", "where": "Columbia Housing", "tag": "Reports"}];
-const STOPS = [{"day": 1, "slot": "Programs", "title": "Public housing", "short": "Affordable rental communities.", "quote": "Find a community that meets your needs.", "detail": "Explore property details, program eligibility, and application notices.", "also": ["Public housing", "Communities"], "img": "assets/img/pexels-14846410.webp"}, {"day": 1, "slot": "Rental assistance", "title": "Housing Choice Vouchers", "short": "Section 8 rental assistance.", "quote": "Learn how rental assistance works.", "detail": "Review the program requirements and waitlist guidance before applying.", "also": ["Section 8", "Eligibility"], "img": "assets/img/pexels-1330753.webp"}, {"day": 1, "slot": "Properties", "title": "Housing communities", "short": "Find homes by community.", "quote": "Explore neighborhoods and housing options.", "detail": "Use the communities directory to see property details and contacts.", "also": ["Communities", "Property details"], "img": "assets/img/pexels-17375721.webp"}, {"day": 1, "slot": "Applications", "title": "Waitlists", "short": "Find dates and next steps.", "quote": "Review the official notice before you apply.", "detail": "Eligibility and opening dates vary by program and property.", "also": ["Applications", "Waitlists"], "img": "assets/img/pexels-6667677.webp"}, {"day": 1, "slot": "Assistance", "title": "Application help", "short": "Help when you need it.", "quote": "Ask for assistance with the application process.", "detail": "Columbia Housing can provide information about language assistance and reasonable accommodations.", "also": ["Application help", "Accommodations"], "img": "assets/img/pexels-6767004.webp"}, {"day": 2, "slot": "Residents", "title": "Resident support", "short": "Resources for your household.", "quote": "Find services for current residents.", "detail": "Access resident programs, rent payment information, forms, and maintenance support.", "also": ["Residents", "Services"], "img": "assets/img/pexels-7491337.webp"}, {"day": 2, "slot": "Public information", "title": "Board & notices", "short": "Agency records and updates.", "quote": "Follow public notices and Board activity.", "detail": "Find meetings, reports, procurement information, and community updates.", "also": ["Notices", "Public records"], "img": "assets/img/pexels-7013911.webp"}];
-const SEARCH = [{"type": "Services", "t": "Apply for Housing", "s": "eligibility applications housing waitlists", "href": "apply-for-housing.html", "k": "eligibility applications housing waitlists", "img": "assets/img/pexels-18153132.webp"}, {"type": "Services", "t": "Check Application Status", "s": "waitlistcheck sign in application status waitlists", "href": "apply-for-housing.html#application-status", "k": "waitlistcheck sign in application status waitlists", "img": "assets/img/pexels-9064307.webp"}, {"type": "Services", "t": "Pay Rent", "s": "resident payment portal", "href": "https://www.columbiahousingsc.org/pay-rent-online", "k": "resident payment portal", "img": "assets/img/pexels-7821495.webp"}, {"type": "Services", "t": "Request Maintenance", "s": "maintenance repair resident forms", "href": "https://www.columbiahousingsc.org/custom-forms/maintenance-request", "k": "maintenance repair resident forms", "img": "assets/img/pexels-5768284.webp"}, {"type": "Services", "t": "Resident Services", "s": "resident support forms", "href": "https://www.columbiahousingsc.org/residents", "k": "resident support forms", "img": "assets/img/pexels-8292806.webp"}, {"type": "Services", "t": "Landlord Portal", "s": "landlords payments inspections", "href": "https://www.columbiahousingsc.org/landlord-owner-agent-portal", "k": "landlords payments inspections", "img": "assets/img/pexels-7821682.webp"}, {"type": "Services", "t": "Contact", "s": "office phone address help", "href": "https://www.columbiahousingsc.org/contact-us", "k": "office phone address help", "img": "assets/img/pexels-40437064.webp"}, {"type": "Services", "t": "Bid Opportunities", "s": "vendor procurement contracts", "href": "https://www.columbiahousingsc.org/procurement", "k": "vendor procurement contracts", "img": "assets/img/pexels-8453825.webp"}, {"type": "Services", "t": "Public Notices", "s": "news meetings calendar housing openings", "href": "https://www.columbiahousingsc.org/news-archives", "k": "news meetings calendar housing openings", "img": "assets/img/pexels-11631278.webp"}, {"type": "Services", "t": "Reasonable Accommodations", "s": "accessibility language assistance help", "href": "https://www.columbiahousingsc.org/reasonable-accommodations", "k": "accessibility language assistance help", "img": "assets/img/pexels-34328481.webp"}];
-const KNOWN = [["Apply for Housing", "assets/img/pexels-18153132.webp", "apply-for-housing.html"], ["Resident Services", "assets/img/pexels-8292806.webp", "https://www.columbiahousingsc.org/residents"], ["Communities", "assets/img/pexels-9494281.webp", "https://www.columbiahousingsc.org/communities"], ["Public Notices", "assets/img/pexels-11631278.webp", "https://www.columbiahousingsc.org/news-archives"], ["Forms", "assets/img/pexels-6169161.webp", "https://www.columbiahousingsc.org/custom-forms"], ["Bid Opportunities", "assets/img/pexels-8453825.webp", "https://www.columbiahousingsc.org/procurement"]];
-const FAQ = [["Where is the main office?", "1917 Harden Street, Columbia, SC 29204."], ["How do I check my application?", "Use Check Application Status to open WaitListCheck with your existing credentials."], ["How do I request a repair?", "Use the Maintenance Request form for routine requests. After hours, call (803) 254-3886 and press 5."], ["Can I get help applying?", "Call (803) 254-3886 for application help, reasonable accommodations, or language assistance."]];
+const EVENTS = [{"title": "Housing waitlist notices", "category": "housing", "time": "Application notices", "blurb": "Review openings, eligibility, and where to apply.", "img": "assets/img/pexels-11631278.webp", "href": "apply-for-housing.html#waitlists", "where": "Columbia Housing", "tag": "Waitlists"}, {"title": "Board meetings", "category": "meetings", "time": "Board and committees", "blurb": "Find meeting dates and details. Check the calendar for meeting links and materials.", "img": "assets/img/pexels-15377735.webp", "href": "https://www.columbiahousingsc.org/board-meetings", "where": "Columbia Housing", "tag": "Meetings"}, {"title": "Community calendar", "category": "community", "time": "Event listings", "blurb": "Check the official calendar for dates and participation details.", "img": "assets/img/pexels-33688258.webp", "href": "https://www.columbiahousingsc.org/calendar", "where": "Columbia Housing", "tag": "Events"}, {"title": "Resident programs", "category": "community", "time": "Resident services", "blurb": "Find senior and youth services, employment support, and Family Self-Sufficiency resources.", "img": "assets/img/pexels-27471164.webp", "href": "https://www.columbiahousingsc.org/resident-and-strategic-initiatives", "where": "Columbia Housing", "tag": "Services"}, {"title": "Agency plans & reports", "category": "meetings", "time": "Published documents", "blurb": "Read annual plans and related documents from Columbia Housing.", "img": "assets/img/pexels-7947663.webp", "href": "https://www.columbiahousingsc.org/annual-plans", "where": "Columbia Housing", "tag": "Reports"}];
+const STOPS = [{"day": 1, "slot": "Programs", "title": "Public housing", "short": "Affordable rental housing.", "quote": "Explore Public Housing communities.", "detail": "Review program requirements and look for the waitlist for the property or unit type you need.", "also": ["Public housing", "Communities"], "img": "assets/img/pexels-14846410.webp"}, {"day": 1, "slot": "Rental assistance", "title": "Housing Choice Vouchers", "short": "Section 8 rental assistance.", "quote": "Use a voucher to rent in the private market.", "detail": "Eligible households find a unit that meets program requirements with a landlord who accepts the voucher.", "also": ["Section 8", "Eligibility"], "img": "assets/img/pexels-1330753.webp"}, {"day": 1, "slot": "Properties", "title": "Housing communities", "short": "Find properties and contacts.", "quote": "Compare Columbia Housing communities.", "detail": "The directory includes Public Housing, Rental Assistance Demonstration (RAD), and other affordable properties.", "also": ["Communities", "Property details"], "img": "assets/img/pexels-17375721.webp"}, {"day": 1, "slot": "Applications", "title": "Waitlists", "short": "Find dates and next steps.", "quote": "Review the official notice before you apply.", "detail": "Check whether the list is open, who can apply, and the deadline. Follow the application link for that listing.", "also": ["Applications", "Waitlists"], "img": "assets/img/pexels-6667677.webp"}, {"day": 1, "slot": "Assistance", "title": "Application help", "keepFacesVisible": true, "short": "Help when you need it.", "quote": "Ask for assistance with the application process.", "detail": "Call Columbia Housing if you need help applying, language assistance, or a disability accommodation.", "also": ["Application help", "Accommodations"], "img": "assets/img/pexels-5921654.webp"}, {"day": 2, "slot": "Residents", "title": "Resident support", "short": "Resources for your household.", "quote": "Find services for current residents.", "detail": "Pay rent, request maintenance, or learn about family, senior, and youth programs.", "also": ["Residents", "Services"], "img": "assets/img/pexels-7491337.webp"}, {"day": 2, "slot": "Public information", "title": "Board & notices", "short": "Agency records and updates.", "quote": "Follow public notices and Board activity.", "detail": "Find Board and committee meetings, published plans, and agency notices.", "also": ["Notices", "Public records"], "img": "assets/img/pexels-7013911.webp"}];
+const SEARCH = [{"type": "Services", "t": "Apply for Housing", "s": "Compare programs and review housing waitlists.", "href": "apply-for-housing.html", "k": "application eligibility openings section 8", "img": "assets/img/pexels-18153132.webp"}, {"type": "Services", "t": "Check Application Status", "s": "Check your waitlist status in WaitListCheck.", "href": "apply-for-housing.html#application-status", "k": "returning applicants login sign in", "img": "assets/img/pexels-9064307.webp"}, {"type": "Services", "t": "Pay Rent", "s": "Find Columbia Housing’s online rent payment link.", "href": "https://www.columbiahousingsc.org/pay-rent-online", "k": "residents payments rentpayment", "img": "assets/img/pexels-7821495.webp"}, {"type": "Services", "t": "Request Maintenance", "s": "Submit a routine repair request.", "href": "https://www.columbiahousingsc.org/custom-forms/maintenance-request", "k": "residents work order maintenance after hours", "img": "assets/img/pexels-5768107.webp"}, {"type": "Services", "t": "Resident Services", "s": "Find forms and support for residents.", "href": "https://www.columbiahousingsc.org/residents", "k": "senior youth family services", "img": "assets/img/pexels-7678149.webp"}, {"type": "Services", "t": "Landlord Portal", "s": "Access the owner and agent portal.", "href": "https://www.columbiahousingsc.org/landlord-owner-agent-portal", "k": "landlords payments inspections", "img": "assets/img/pexels-7821682.webp"}, {"type": "Services", "t": "Contact", "s": "Find the main office, hours, and phone number.", "href": "https://www.columbiahousingsc.org/contact-us", "k": "office directions phone address help report", "img": "assets/img/pexels-40437064.webp"}, {"type": "Services", "t": "Bid Opportunities", "s": "View solicitations on Housing Agency Marketplace.", "href": "https://ha.internationaleprocurement.com/requests.html?company_id=49948", "k": "vendor bids procurement contracts addenda", "img": "assets/img/pexels-8453825.webp"}, {"type": "Services", "t": "Public Notices", "s": "Read agency announcements and waitlist notices.", "href": "https://www.columbiahousingsc.org/news-archives", "k": "news public notices housing openings archive", "img": "assets/img/pexels-11631278.webp"}, {"type": "Services", "t": "Reasonable Accommodations", "s": "Find help requesting an accommodation.", "href": "https://www.columbiahousingsc.org/reasonable-accommodations", "k": "disability accessibility language translation assistance", "img": "assets/img/pexels-33768860.webp"}, {"type": "Services", "t": "Housing Waitlists", "s": "Review featured listings and check where to apply.", "href": "apply-for-housing.html#waitlists", "k": "open upcoming closed restricted pre-application", "img": "assets/img/pexels-18153132.webp"}, {"type": "Services", "t": "Application Help", "s": "Get help applying or request language assistance.", "href": "apply-for-housing.html#application-help", "k": "disability accommodation translation assistance", "img": "assets/img/pexels-33768860.webp"}, {"type": "Services", "t": "Housing Programs", "s": "Learn about Public Housing, RAD, and vouchers.", "href": "https://www.columbiahousingsc.org/housing", "k": "section 8 rental assistance eligibility", "img": "assets/img/pexels-18153132.webp"}, {"type": "Services", "t": "Communities", "s": "Find properties, locations, and contacts.", "href": "https://www.columbiahousingsc.org/communities", "k": "directory apartments property map", "img": "assets/img/pexels-18153132.webp"}, {"type": "Services", "t": "Board Meetings", "s": "Find meeting dates and materials.", "href": "https://www.columbiahousingsc.org/board-meetings", "k": "commissioners agendas minutes public", "img": "assets/img/pexels-11631278.webp"}, {"type": "Services", "t": "Calendar", "s": "Check agency and community event dates.", "href": "https://www.columbiahousingsc.org/calendar", "k": "events meetings schedule", "img": "assets/img/pexels-11631278.webp"}, {"type": "Services", "t": "Annual Plans", "s": "Read published agency plans and reports.", "href": "https://www.columbiahousingsc.org/annual-plans", "k": "documents public records", "img": "assets/img/pexels-11631278.webp"}, {"type": "Services", "t": "Forms", "s": "Find official forms and online requests.", "href": "https://www.columbiahousingsc.org/custom-forms", "k": "report income change document download", "img": "assets/img/pexels-5768107.webp"}, {"type": "Services", "t": "Department Directory", "s": "Find the department that can help.", "href": "https://www.columbiahousingsc.org/department-directory", "k": "staff employee contact report", "img": "assets/img/pexels-40437064.webp"}, {"type": "Services", "t": "Careers", "s": "Find employment opportunities at Columbia Housing.", "href": "https://www.columbiahousingsc.org/career-opportunities", "k": "jobs work hiring recruiting", "img": "assets/img/pexels-40437064.webp"}, {"type": "Services", "t": "Email Updates", "s": "Sign up for Columbia Housing news and alerts.", "href": "https://www.columbiahousingsc.org/alerts-signup", "k": "subscribe email sms upcoming waitlists", "img": "assets/img/pexels-11631278.webp"}];
+const KNOWN = [["Apply for Housing", "assets/img/pexels-18153132.webp", "apply-for-housing.html"], ["Resident Services", "assets/img/pexels-7678149.webp", "https://www.columbiahousingsc.org/residents"], ["Communities", "assets/img/pexels-9494281.webp", "https://www.columbiahousingsc.org/communities"], ["Public Notices", "assets/img/pexels-11631278.webp", "https://www.columbiahousingsc.org/news-archives"], ["Forms", "assets/img/pexels-6169161.webp", "https://www.columbiahousingsc.org/custom-forms"], ["Bid Opportunities", "assets/img/pexels-8453825.webp", "https://ha.internationaleprocurement.com/requests.html?company_id=49948"]];
+const FAQ = [["Where is the main office?", "1917 Harden Street, Columbia, SC 29204."], ["How do I check my application?", "Use Check Application Status to open WaitListCheck. Sign in with the account you created when you applied."], ["How do I request a repair?", "Use the Maintenance Request form for routine requests. After hours, call (803) 254-3886 and press 5."], ["Can I get help applying?", "Call (803) 254-3886 if you need help applying, language assistance, or a reasonable accommodation."]];
 /* ═════════ HELPERS ═════════ */
 const $ = (s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
 const svgUse=(id,s=16)=>`<svg width="${s}" height="${s}" aria-hidden="true"><use href="#${id}"/></svg>`;
@@ -1193,7 +1205,9 @@ function renderTrack(){
 function renderCase(){
   const st=dayStops(), s=st[cur];
   $$('.stage',track).forEach((b,i)=>{b.setAttribute('aria-selected',i===cur);b.tabIndex=i===cur?0:-1;});
-  $('#caseImg').src=IMG(s.img);
+  const image = $('#caseImg');
+  image.closest('.case-tag').classList.toggle('case-tag--application-help', Boolean(s.keepFacesVisible));
+  image.src = IMG(s.img);
   $('#caseKicker').textContent=`${s.slot}`;
   $('#caseTitle').textContent=s.title;
   $('#case').setAttribute('aria-labelledby','st-'+cur);
